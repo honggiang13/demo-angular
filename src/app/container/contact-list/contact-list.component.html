@@ -9,3 +9,24 @@
         </div>
     </div>
 </div>
+
+<div>
+    <button (click)="changeTab(1)">TAB 1</button>
+    <button (click)="changeTab(2)">TAB 2</button>
+    <button (click)="changeTab(3)">TAB 3</button>
+</div>
+
+<div [ngSwitch]="tabIndex">
+    <div *ngSwitchCase="1">
+        <div>tab content 1</div>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid, tenetur.</p>
+    </div>
+    <div *ngSwitchCase="2">
+        <div>tab content 2</div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, labore?</p>
+    </div>
+    <div *ngSwitchCase="3">
+        <div>tab content 3</div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, quasi.</p>
+    </div>
+</div>

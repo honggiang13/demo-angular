@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
 export class ContactListComponent {
     printable = true;
     message = 'Xin chào, contacListComponent!';
+    tabIndex = 1;
+
     doClick() {
         this.message = 'Button clicked';
         setTimeout(() => {
@@ -38,4 +40,8 @@ export class ContactListComponent {
         }
     }
     ];
+
+    changeTab(tabIndex) {
+        this.tabIndex = tabIndex;
+    }
 }
