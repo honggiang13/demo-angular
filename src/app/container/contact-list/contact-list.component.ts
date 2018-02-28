@@ -14,16 +14,21 @@ export class ContactListComponent {
             this.message = 'Button click done!!!';
         }, 4000);
     }
-
-    contact = [{
+    // tslint:disable-next-line:member-ordering
+    contacts = [{
         id: 1,
         name: 'name 1',
         job: 'web',
         avatar: {
-            url: ''
+            url: 'https://codepo8.github.io/canvas-images-and-pixels/img/horse.png'
         }
     }, {
-        
+        id: 2,
+        name: 'name 2',
+        job: 'dev',
+        avatar: {
+            url: 'https://codepo8.github.io/canvas-images-and-pixels/img/horse.png'
+        }
     }
-    }];
+    ];
 }
