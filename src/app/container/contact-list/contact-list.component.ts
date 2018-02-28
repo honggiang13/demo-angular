@@ -27,6 +27,13 @@ export class ContactListComponent {
         name: 'name 2',
         job: 'dev',
         avatar: {
+            url: ''
+        }
+    }, {
+        id: 3,
+        name: 'name 3',
+        job: 'test',
+        avatar: {
             url: 'https://codepo8.github.io/canvas-images-and-pixels/img/horse.png'
         }
     }
