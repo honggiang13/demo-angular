@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import mongoose from 'mongoose';
 
 @Component({
   selector: 'app-root',

@@ -1,0 +1,56 @@
+<app-toast [message]="toast.message"></app-toast>
+
+<div class="card" *ngIf="!isEditing">
+  <h4 class="card-header">Add new book</h4>
+  <div class="card-body">
+    <form class="ui form form-inline" [formGroup]="addBookForm" (ngSubmit)="addBook()">
+      <input class="field form-control mr-2" type="text" name="title" formControlName="title" placeholder="title">
+      <input class="field form-control mr-2" type="text" name="author" formControlName="author" placeholder="author">
+      <button class="ui primary button btn btn-primary" type="submit" [disabled]="!addBookForm.valid"><i class="fa fa-floppy-o"></i> Add</button>
+    </form>
+  </div>
+</div>
+
+<app-loading [condition]="isLoading"></app-loading>
+
+<div class="card mb-3" *ngIf="!isLoading">
+  <h4 class="card-header">Current books ({{books.length}})</h4>
+  <div class="card-body">
+    <table class="ui celled table table-bordered">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">title</th>
+          <th scope="col">author</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="books.length === 0">
+        <tr>
+          <td colspan="4">There are no books in the DB. Add a new book below.</td>
+        </tr>  
+      </tbody>
+      <tbody *ngIf="!isEditing">
+        <tr *ngFor="let book of books">
+          <td>{{book.title}}</td>
+          <td>{{book.author}}</td>
+          <td>
+            <button class="ui primary button btn btn-sm btn-primary" (click)="enableEditing(book)"><i class="fa fa-pencil"></i> Edit</button> 
+            <button class="ui red button btn btn-sm btn-danger" (click)="deleteBook(book)"><i class="fa fa-trash"></i> Delete</button>
+          </td>
+        </tr>  
+      </tbody>
+      <tbody *ngIf="isEditing">
+        <tr>
+          <td colspan="4">
+            <form class="ui form form-inline" #form="ngForm" (ngSubmit)="editBook(book)">
+              <input class="field form-control mr-2" type="text" name="title" [(ngModel)]="book.title" placeholder="title" required>
+              <input class="field form-control mr-2" type="text" name="author" [(ngModel)]="book.author" placeholder="author" required>
+              <button class="ui primary button btn btn-sm btn-primary mr-2" type="submit" [disabled]="!form.form.valid"><i class="fa fa-floppy-o"></i> Save</button>
+              <button class="ui button btn btn-sm btn-warning" (click)="cancelEditing()"><i class="fa fa-times"></i> Cancel</button>
+            </form>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
