@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+    background-color: none;
+}
+.ui.horizontal.divider {
+     color: black !important;
+}
+
+
+.ui.segment.sticky.fixed {
+   margin-top: 39px;
+   background-color: white;
+   box-shadow: 1px 1px 5px #888888;
+   animation-duration: 4s;
+ }            
+ 
+ .ui.search > .results .result {
+     text-align: left;
+     padding: 8px !important;
+ }
+ 
+ .ui.search.allsite .results .result .image {
+     float: left;
+     width: auto;
+ }            
+ 
+ .ui.search.allsite .results .result .image + .content {
+     margin: 0em 0em 0em 2.5em;                
+ }

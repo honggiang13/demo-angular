@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams  } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { environment } from '../../environments/environment';
 
 import { Book } from '../shared/models/book.model';
 
@@ -9,8 +10,13 @@ export class BookService {
 
   constructor(private http: HttpClient) { }
 
-  getBooks(): Observable<Book[]> {
-    return this.http.get<Book[]>('https://foxreader.ez-connect.net/v1/books/');
+  getBooks(page: any, size: any): Observable<Book[]> {
+    let Params = new HttpParams();
+
+    Params = Params.append('page', page);
+    Params = Params.append('size', size);
+
+    return this.http.get<Book[]>(`${environment.api_host}/books/`, { params: Params });
   }
 
   countBooks(): Observable<number> {

@@ -1,6 +1,12 @@
 export class Book {
     _id?: string;
-    title?: string;
+    cover?: string;
     author?: string;
+    bookid?: string;
+    title?: string;
     description?: string;
+    length?: string;
+    tags?: string[];
+    updateAt?: string;
+    createAt?: string;
   }
