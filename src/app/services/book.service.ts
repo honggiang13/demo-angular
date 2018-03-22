@@ -10,7 +10,7 @@ export class BookService {
   constructor(private http: HttpClient) { }
 
   getBooks(): Observable<Book[]> {
-    return this.http.get<Book[]>('http://159.65.5.18:3000/books');
+    return this.http.get<Book[]>('https://foxreader.ez-connect.net/v1/books/');
   }
 
   countBooks(): Observable<number> {
